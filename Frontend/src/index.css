@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* *{
+    background-color: #fafafa;
+} */
+/* *:not(.footer-exclude) {
+    background-color: #000000;
+} */
