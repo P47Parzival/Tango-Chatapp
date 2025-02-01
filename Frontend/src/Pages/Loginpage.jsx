@@ -17,10 +17,12 @@ const Login = ({ onLogin }) => {
                 password,
             });
             alert(response.data.message);
-            onLogin(username); // Notify the parent component that the user has logged in
+            // Notify the parent component that the user has logged in, passing both username and avatar
+            onLogin(response.data.user.username, response.data.user.avatar);
             navigate('/chat'); // Redirect to the chat page
         } catch (err) {
-            alert(err.response?.data?.message || 'Login failed');
+            alert('Please registers first 🙏');
+            navigate('/register');
         }
     };
 
