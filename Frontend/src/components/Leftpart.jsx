@@ -1,14 +1,14 @@
-import React from 'react'
-import Lptop from './Lptop'
-import Leftbottom from './Leftbottom'
+import React from 'react';
+import Lptop from './Lptop';
+import Leftbottom from './Leftbottom';
 
-const Leftpart = () => {
+const Leftpart = ({ selectedUser }) => {
     return (
         <div>
-            <Lptop></Lptop>
-            <Leftbottom></Leftbottom>
+            <Lptop selectedUser={selectedUser} />
+            <Leftbottom />
         </div>
-    )
-}
+    );
+};
 
-export default Leftpart
+export default Leftpart;
