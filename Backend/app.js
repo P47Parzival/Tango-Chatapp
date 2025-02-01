@@ -77,6 +77,27 @@ app.post('/register', async (req, res) => {
     }
 });
 
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(400).json({ message: 'User not found Please register first🙏' });
+        }
+
+        // Simple password check (in a real app, use bcrypt or similar)
+        if (user.password !== password) {
+            return res.status(400).json({ message: 'Invalid password' });
+        }
+
+        res.status(200).json({ message: 'Login successful', user });
+    } catch (err) {
+        console.error('Error during login:', err);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 // Route to fetch all users
 app.get('/users', async (req, res) => {
     try {
